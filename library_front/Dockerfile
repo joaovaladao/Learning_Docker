@@ -1,7 +1,13 @@
-FROM node:12.18.1
+FROM node:14.9
 
-RUN npm install 
+WORKDIR '/frontend'
+
+COPY package.json ./
+
+RUN npm install
+
+COPY . .
 
 EXPOSE 3000
 
-CMD ["npm","start"]
+CMD ["npm", "start"]
